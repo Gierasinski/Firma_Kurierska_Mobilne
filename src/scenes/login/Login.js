@@ -16,8 +16,8 @@ const Login = ({ navigation }) => {
   const [visiblePass, setVisiblePass] = useState(false);
   const [visible, setVisible] = React.useState(false);
 
-  const onToggleToastBar = () => setVisible(!visible);
-  const onDismissToastBar = () => setVisible(false);
+  const onToggleSnackBar = () => setVisible(!visible);
+  const onDismissSnackBar = () => setVisible(false);
 
    const checkLogin = () => {
           if(login && pass && (login === pass)){
@@ -38,6 +38,12 @@ const Login = ({ navigation }) => {
    }
   return (
     <View style={styles.container}>
+    <Snackbar
+        visible={visible}
+        onDismiss={onDismissSnackBar}
+        style={{backgroundColor: 'red'}}>
+        Login or password is incorrect
+    </Snackbar>
     <View style={{ flex: 1}} />
     <View style={{ flex: 2}} >
       <TextInput
