@@ -6,7 +6,6 @@ import {
   WarningOutlineIcon,
   Box,
   Center,
-  NativeBaseProvider,
 } from "native-base"
 import { colors } from 'theme'
 import Button from 'components/Button'
@@ -59,10 +58,8 @@ Example.defaultProps = {
 }
 export default () => {
   return (
-    <NativeBaseProvider>
       <Center flex={1} px="3">
         <Example />
       </Center>
-    </NativeBaseProvider>
   )
 }

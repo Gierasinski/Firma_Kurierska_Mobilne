@@ -7,8 +7,10 @@ import Form from 'scenes/form'
 import Login from 'scenes/login'
 import Text from 'scenes/text'
 import Home from 'scenes/home'
+import Send from 'scenes/send'
 import Profile from 'scenes/profile'
 import Details from 'scenes/details'
+import SendDetails from 'scenes/sendDetails'
 import HeaderLeft from './HeaderLeft'
 import HeaderTitle from './HeaderTitle'
 import { AsyncStorage } from 'react-native';
@@ -28,17 +30,17 @@ const navigationProps = {
 // Navigators
 // ------------------------------------
 
-export const HomeNavigator = () => (
+export const SendNavigator = () => (
   <Stack.Navigator
     initialRouteName="Home"
     headerMode="screen"
     screenOptions={navigationProps}
   >
     <Stack.Screen
-      name="Home"
-      component={Home}
+      name="Send"
+      component={Send}
       options={({ navigation }) => ({
-        title: 'Home',
+        title: 'Send',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}
@@ -47,7 +49,7 @@ export const HomeNavigator = () => (
       name="Details"
       component={Details}
       options={({ navigation }) => ({
-        title: 'Home',
+        title: 'Send',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}
@@ -105,12 +107,21 @@ return(
     screenOptions={navigationProps}
   >
     {login ? <Stack.Screen
-      name="Home"
-      component={Home}
-      options={{headerShown: false}} /> :
+      name="Track"
+      component={Track}
+      options={({ navigation }) => ({
+              title: 'Track',
+              headerLeft: () => <HeaderLeft navigation={navigation} />,
+              headerTitle: () => <HeaderTitle />,
+            })} /> :
     <Stack.Screen
           name="Login"
           component={Login}
+          options={({ navigation }) => ({
+                        title: 'Login',
+                        headerLeft: () => <HeaderLeft navigation={navigation} />,
+                        headerTitle: () => <HeaderTitle />,
+                      })}
         />}
   </Stack.Navigator>
 //</NavigationContainer>

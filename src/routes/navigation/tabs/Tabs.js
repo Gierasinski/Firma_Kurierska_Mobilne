@@ -2,10 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors } from 'theme'
 
 // stack navigators
-import { HomeNavigator, ProfileNavigator, InsertNavigator } from '../stacks'
+import { SendNavigator, ProfileNavigator, InsertNavigator } from '../stacks'
 
 const Tab = createBottomTabNavigator()
 
@@ -15,11 +16,11 @@ const TabNavigator = () => (
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ focused }) => {
         switch (route.name) {
-          case 'Home':
+          case 'Send':
             return (
-              <FontIcon
-                name="home"
-                color={focused ? colors.lightPurple : colors.gray}
+              <Icon
+                name="cube-send"
+                color={focused ? colors.yellowish : colors.gray}
                 size={20}
                 solid
               />
@@ -28,7 +29,7 @@ const TabNavigator = () => (
             return (
               <FontIcon
                 name="user"
-                color={focused ? colors.lightPurple : colors.gray}
+                color={focused ? colors.yellowish: colors.gray}
                 size={20}
                 solid
               />
@@ -37,7 +38,7 @@ const TabNavigator = () => (
                        return (
                          <FontIcon
                            name="user"
-                           color={focused ? colors.lightPurple : colors.gray}
+                           color={focused ? colors.yellowish : colors.gray}
                            size={20}
                            solid
                          />
@@ -48,20 +49,20 @@ const TabNavigator = () => (
       },
     })}
     tabBarOptions={{
-      activeTintColor: colors.lightPurple,
-      inactiveTintColor: colors.gray,
+      activeTintColor: colors.yellowish,
+      inactiveTintColor: colors.white,
       style: {
-        // backgroundColor: 'white',
+         backgroundColor: colors.lightBlue,
         // borderTopColor: 'gray',
         // borderTopWidth: 1,
         // paddingBottom: 5,
         // paddingTop: 5,
       },
     }}
-    initialRouteName="Home"
+    initialRouteName="Send"
     swipeEnabled={false}
   >
-    <Tab.Screen name="Home" component={HomeNavigator} />
+    <Tab.Screen name="Send" component={SendNavigator} />
     <Tab.Screen name="Profile" component={ProfileNavigator} />
     <Tab.Screen name="Insert" component={InsertNavigator} />
   </Tab.Navigator>

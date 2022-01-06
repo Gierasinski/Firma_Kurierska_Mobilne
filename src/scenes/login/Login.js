@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
    const checkLogin = () => {
           if(login && pass && (login === pass)){
               storeData().then(() => {
-                  navigation.navigate('Home', { from: 'Login' })
+                  navigation.navigate('Track', { from: 'Login' })
               })
 
           }else{
@@ -79,6 +79,15 @@ const Login = ({ navigation }) => {
         </View>
     </View>
   )
+}
+Login.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
+}
+
+Login.defaultProps = {
+  navigation: { navigate: () => null },
 }
 
 export default Login;
