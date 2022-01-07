@@ -123,6 +123,15 @@ return(
                         headerTitle: () => <HeaderTitle />,
                       })}
         />}
+    <Stack.Screen
+      name="Send"
+      component={Send}
+      options={({ navigation }) => ({
+        title: 'Send',
+        headerLeft: () => <HeaderLeft navigation={navigation} />,
+        headerTitle: () => <HeaderTitle />,
+      })}
+    />
   </Stack.Navigator>
 //</NavigationContainer>
 )

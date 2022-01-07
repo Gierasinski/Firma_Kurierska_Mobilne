@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
    const checkLogin = () => {
           if(login && pass && (login === pass)){
               storeData().then(() => {
-                  navigation.navigate('Track', { from: 'Login' })
+                  navigation.navigate('Send', { from: 'Login' })
               })
 
           }else{
