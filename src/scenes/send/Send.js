@@ -198,7 +198,7 @@ export const Send = ({ navigation }) => {
            color="white"
            backgroundColor={colors.yellowish}
            onPress={() => {
-             navigation.navigate('Details', { from: parseFloat(shipmentValue) + parseFloat(sizeValue), size: Radio })
+             navigation.navigate('SendDetails', { from: parseFloat(shipmentValue) + parseFloat(sizeValue), size: Radio })
            }}
         />
     </View>

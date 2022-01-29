@@ -6,12 +6,12 @@ import {
 import Button from 'components/Button'
 import { colors } from 'theme'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { Snackbar } from 'react-native-paper';
-
+import { Snackbar } from 'react-native-paper'
+import { login } from '../../api/mock'
 
 
 const Login = ({ navigation }) => {
-  const [login, onChangeLogin] = useState(null);
+  const [email, onChangeEmail] = useState(null);
   const [pass, onChangePass] = useState(null);
   const [visiblePass, setVisiblePass] = useState(false);
   const [visible, setVisible] = React.useState(false);
@@ -20,22 +20,21 @@ const Login = ({ navigation }) => {
   const onDismissSnackBar = () => setVisible(false);
 
    const checkLogin = () => {
-          if(login && pass && (login === pass)){
-              storeData().then(() => {
-                  navigation.navigate('Send', { from: 'Login' })
-              })
+     if(email&& pass && (email=== pass)){
+                  login(email, pass, true)
+                        .then(() => {
+                          navigation.navigate('Home');
+                        })
+                        .catch((err) => setVisible(true));
+             }else{
+                  login(email, pass, false)
+                        .then(() => {
+                          navigation.navigate('Home');
+                        })
+                        .catch((err) => setVisible(true));
+             }
+   }
 
-          }else{
-              setVisible(true);
-          }
-   }
-   const storeData = async () => {
-        try {
-            await AsyncStorage.setItem('login', 'true')
-        } catch (e) {
-            // saving error
-        }
-   }
   return (
     <View style={styles.container}>
     <Snackbar
@@ -48,9 +47,9 @@ const Login = ({ navigation }) => {
     <View style={{ flex: 2}} >
       <TextInput
         style={styles.input}
-        onChangeText={onChangeLogin}
-        value={login}
-        placeholder="Login"
+        onChangeText={onChangeEmail}
+        value={email}
+        placeholder="Email"
       />
 
       <TextInput

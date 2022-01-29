@@ -1,3 +1,3 @@
-import { SendNavigator, ProfileNavigator, InsertNavigator, FormNavigator, LoginNavigator} from './Stacks'
+import { SendNavigator, ProfileNavigator, InsertNavigator, RegisterNavigator, LoginNavigator, MapNavigator} from './Stacks'
 
-export { SendNavigator, ProfileNavigator, InsertNavigator, FormNavigator, LoginNavigator}
+export { SendNavigator, ProfileNavigator, InsertNavigator, RegisterNavigator, LoginNavigator, MapNavigator}

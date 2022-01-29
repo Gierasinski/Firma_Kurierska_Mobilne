@@ -6,10 +6,11 @@ import {
 } from '@react-navigation/drawer'
 import DrawerMenu from './DrawerMenu'
 import TabNavigator from '../tabs'
-import { InsertNavigator, FormNavigator, LoginNavigator } from '../stacks'
+import { InsertNavigator, RegisterNavigator, LoginNavigator, MapNavigator} from '../stacks'
 import Insert from 'scenes/input'
-import Form from 'scenes/form'
+import Register from 'scenes/register'
 import Login from 'scenes/login'
+import Map from 'scenes/map'
 
 const Drawer = createDrawerNavigator()
 
@@ -30,7 +31,8 @@ const DrawerNavigator = () => (
   // drawerContent={DrawerMenuContainer}
   >
     <Drawer.Screen name="Home" component={TabNavigator} />
-    <Drawer.Screen name="Form" component={FormNavigator}/>
+    <Drawer.Screen name="Lockers Map" component={MapNavigator} />
+    <Drawer.Screen name="Register" component={RegisterNavigator}/>
     <Drawer.Screen name="Login" component={LoginNavigator}/>
 
   </Drawer.Navigator>

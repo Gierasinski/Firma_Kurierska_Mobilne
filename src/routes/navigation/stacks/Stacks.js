@@ -1,19 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native"
 import { colors } from 'theme'
 import Insert from 'scenes/input'
-import Form from 'scenes/form'
+import Register from 'scenes/register'
 import Login from 'scenes/login'
 import Text from 'scenes/text'
 import Home from 'scenes/home'
+import Map from 'scenes/map'
 import Send from 'scenes/send'
 import Profile from 'scenes/profile'
 import Details from 'scenes/details'
 import SendDetails from 'scenes/sendDetails'
 import HeaderLeft from './HeaderLeft'
 import HeaderTitle from './HeaderTitle'
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -46,8 +47,8 @@ export const SendNavigator = () => (
       })}
     />
     <Stack.Screen
-      name="Details"
-      component={Details}
+      name="SendDetails"
+      component={SendDetails}
       options={({ navigation }) => ({
         title: 'Send',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
@@ -169,26 +170,43 @@ export const InsertNavigator = () => (
   </Stack.Navigator>
 )
 
-export const FormNavigator = () => (
+export const RegisterNavigator = () => (
   <Stack.Navigator
-    initialRouteName="Form"
+    initialRouteName="Register"
     headerMode="screen"
     screenOptions={navigationProps}
   >
     <Stack.Screen
-      name="Form"
-      component={Form}
+      name="Register"
+      component={Register}
       options={({ navigation }) => ({
-        title: 'Form',
+        title: 'Register',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}
     />
     <Stack.Screen
-      name="Details"
-      component={Details}
+      name="Login"
+      component={Login}
       options={({ navigation }) => ({
-        title: 'Home',
+        title: 'Login',
+        headerLeft: () => <HeaderLeft navigation={navigation} />,
+        headerTitle: () => <HeaderTitle />,
+      })}
+    />
+  </Stack.Navigator>
+)
+export const MapNavigator = () => (
+  <Stack.Navigator
+    initialRouteName="Map"
+    headerMode="screen"
+    screenOptions={navigationProps}
+  >
+    <Stack.Screen
+      name="Map"
+      component={Map}
+      options={({ navigation }) => ({
+        title: 'Map',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}
