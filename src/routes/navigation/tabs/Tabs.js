@@ -2,11 +2,12 @@ import React from 'react'
 import { View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import { colors } from 'theme'
+import Track from 'scenes/track'
 
 // stack navigators
-import { SendNavigator, ProfileNavigator, InsertNavigator } from '../stacks'
+import { SendNavigator, ProfileNavigator, InsertNavigator, NotificationsNavigator, TrackNavigator} from '../stacks'
 
 const Tab = createBottomTabNavigator()
 
@@ -25,19 +26,19 @@ const TabNavigator = () => (
                 solid
               />
             )
-          case 'Profile':
+          case 'Track':
             return (
               <FontIcon
-                name="user"
+                name="route"
                 color={focused ? colors.yellowish: colors.gray}
                 size={20}
                 solid
               />
             )
-           case 'Insert':
+           case 'Notifications':
                        return (
                          <FontIcon
-                           name="user"
+                           name="bell"
                            color={focused ? colors.yellowish : colors.gray}
                            size={20}
                            solid
@@ -63,8 +64,8 @@ const TabNavigator = () => (
     swipeEnabled={false}
   >
     <Tab.Screen name="Send" component={SendNavigator} />
-    <Tab.Screen name="Profile" component={ProfileNavigator} />
-    <Tab.Screen name="Insert" component={InsertNavigator} />
+    <Tab.Screen name="Track" component={TrackNavigator} />
+    <Tab.Screen name="Notifications" component={NotificationsNavigator} />
   </Tab.Navigator>
 )
 

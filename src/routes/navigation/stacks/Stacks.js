@@ -4,14 +4,17 @@ import { NavigationContainer } from "@react-navigation/native"
 import { colors } from 'theme'
 import Insert from 'scenes/input'
 import Register from 'scenes/register'
+import Notifications from 'scenes/notifications'
 import Login from 'scenes/login'
 import Text from 'scenes/text'
+import Track from 'scenes/track'
 import Home from 'scenes/home'
 import Map from 'scenes/map'
 import Send from 'scenes/send'
 import Profile from 'scenes/profile'
 import Details from 'scenes/details'
-import SendDetails from 'scenes/sendDetails'
+import SendShipper from 'scenes/sendShipper'
+import SendReceiver from 'scenes/sendReceiver'
 import HeaderLeft from './HeaderLeft'
 import HeaderTitle from './HeaderTitle'
 import { AsyncStorage } from 'react-native'
@@ -47,14 +50,23 @@ export const SendNavigator = () => (
       })}
     />
     <Stack.Screen
-      name="SendDetails"
-      component={SendDetails}
+      name="SendShipper"
+      component={SendShipper}
       options={({ navigation }) => ({
         title: 'Send',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}
     />
+    <Stack.Screen
+          name="SendReceiver"
+          component={SendReceiver}
+          options={({ navigation }) => ({
+            title: 'Send',
+            headerLeft: () => <HeaderLeft navigation={navigation} />,
+            headerTitle: () => <HeaderTitle />,
+          })}
+        />
   </Stack.Navigator>
 )
 
@@ -207,6 +219,42 @@ export const MapNavigator = () => (
       component={Map}
       options={({ navigation }) => ({
         title: 'Map',
+        headerLeft: () => <HeaderLeft navigation={navigation} />,
+        headerTitle: () => <HeaderTitle />,
+      })}
+    />
+  </Stack.Navigator>
+)
+
+export const NotificationsNavigator = () => (
+  <Stack.Navigator
+    initialRouteName="Notifications"
+    headerMode="screen"
+    screenOptions={navigationProps}
+  >
+    <Stack.Screen
+      name="Notifications"
+      component={Notifications}
+      options={({ navigation }) => ({
+        title: 'Notifications',
+        headerLeft: () => <HeaderLeft navigation={navigation} />,
+        headerTitle: () => <HeaderTitle />,
+      })}
+    />
+  </Stack.Navigator>
+)
+
+export const TrackNavigator = () => (
+  <Stack.Navigator
+    initialRouteName="Track"
+    headerMode="screen"
+    screenOptions={navigationProps}
+  >
+    <Stack.Screen
+      name="Track"
+      component={Track}
+      options={({ navigation }) => ({
+        title: 'Track',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}

@@ -117,9 +117,6 @@ export const Send = ({ navigation }) => {
       </Radio.Group>
 
      </Box>
-
-
-
      <Heading>
         Parcel Size
      </Heading>
@@ -198,7 +195,7 @@ export const Send = ({ navigation }) => {
            color="white"
            backgroundColor={colors.yellowish}
            onPress={() => {
-             navigation.navigate('SendDetails', { from: parseFloat(shipmentValue) + parseFloat(sizeValue), size: Radio })
+             navigation.navigate('SendShipper', { price: parseFloat(shipmentValue) + parseFloat(sizeValue) })
            }}
         />
     </View>

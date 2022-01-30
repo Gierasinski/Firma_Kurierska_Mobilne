@@ -29,7 +29,6 @@ const Login = ({ navigation }) => {
              }else{
                   login(email, pass, false)
                         .then(() => {
-                          navigation.navigate('Home');
                         })
                         .catch((err) => setVisible(true));
              }

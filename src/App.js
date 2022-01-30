@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import store from 'utils/store'
 import 'utils/ignore'
 import {NativeBaseProvider} from "native-base"
+import {SSRProvider} from '@react-aria/ssr';
 
 // assets
 import { imageAssets } from 'theme/images'
@@ -29,11 +30,13 @@ const App = () => {
   // rendering
   if (!didLoad) return <View />
   return (
+  <SSRProvider>
    <NativeBaseProvider>
     <Provider store={store}>
       <Router />
     </Provider>
    </NativeBaseProvider>
+  </SSRProvider>
   )
 }
 
